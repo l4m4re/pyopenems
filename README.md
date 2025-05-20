@@ -37,3 +37,28 @@ sudo apt install libtinyxml-dev libhdf5-serial-dev libcgal-dev vtk6 libvtk6-qt-d
 sudo python3 -m pip install --upgrade pip
 sudo python3 -m pip install vtk scipy matplotlib h5py
 ```
+
+
+Install on Linux Mint (Ubuntu 22)
+
+```bash
+sudo apt install build-essential cmake git libhdf5-dev libvtk7-dev libboost-all-dev libcgal-dev libtinyxml-dev qtbase5-dev libvtk7-qt-dev
+sudo apt install python3-numpy python3-matplotlib cython3 python3-scipy python3-h5py 
+
+git clone https://github.com/thliebig/openEMS-Project.git
+cd openEMS-Project
+git submodule init
+git submodule update
+export OPENEMS=$HOME/software/openems
+./update_openEMS.sh $OPENEMS
+cd CSXCAD/python; python3 setup.py build_ext -I$OPENEMS/include -L$OPENEMS/lib -R$OPENEMS/lib; sudo python3 setup.py install; cd ../..
+cd openEMS/python; python3 setup.py build_ext -I$OPENEMS/include -L$OPENEMS/lib -R$OPENEMS/lib; sudo python3 setup.py install; cd ../..
+```
+
+## Presentation
+
+A presentation of the project is available on YouTube:
+
+https://youtu.be/byId9t0CBEo?si=3DHDtjCIl00Z6PFz
+
+The slides are available in the `docs` folder.

@@ -86,7 +86,7 @@ def generate(em,
     for i in range(n):
         if not rv[i]:
             continue
-        em.add_resistor('r{}'.format(i),
+        openems.Resistor(em,
                         origin=np.array([4*r*i + 3*r,0,z[2]]),
                         direction='y',
                         value=rv[i], invert=False, priority=9, dielectric=alumina,
